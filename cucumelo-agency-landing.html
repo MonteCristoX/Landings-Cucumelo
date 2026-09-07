@@ -20,189 +20,171 @@
     .brand { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1.1rem; }
     .brand span { color: #fff; }
     .brand span.accent { color: var(--primary); }
+    .lang-toggle { position: fixed; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; transition: background 0.2s; font-size: 0.875rem; z-index: 100; }
+    .lang-toggle:hover { background: rgba(255,255,255,0.1); }
     
-    .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      padding: 2rem; 
-      background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%, #16213e 100%);
-      position: relative;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(0,201,163,0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 70%, rgba(0,201,163,0.18) 0%, transparent 40%);
-    }
-    .hero-content { 
-      max-width: 800px; 
-      text-align: center;
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: 1.5rem;
-      padding: 3rem;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-    }
-    
-    .title { 
-      font-family: var(--font-display); 
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      line-height: 1.1; 
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #f5f5f5, var(--primary));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .subtitle { 
-      font-size: 1.3rem; 
-      color: #a3a3a3; 
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .cta-group { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 1rem; 
-      justify-content: center; 
-      margin-bottom: 2rem; 
-    }
-    
-    .btn {
-      padding: 1rem 2.5rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: #0a0a14;
-      box-shadow: 0 4px 20px rgba(0,201,163,0.3);
-    }
-    
+    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%, #16213e 100%); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(0,201,163,0.12) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(0,201,163,0.18) 0%, transparent 40%); }
+    .hero-content { max-width: 800px; text-align: center; background: var(--surface); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 1.5rem; padding: 3rem; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
+    .title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .subtitle { font-size: 1.3rem; color: #a3a3a3; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
+    .btn { padding: 1rem 2.5rem; border-radius: 9999px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; font-size: 1rem; }
+    .btn-primary { background: var(--primary); color: #0a0a14; box-shadow: 0 4px 20px rgba(0,201,163,0.3); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,201,163,0.4); }
+    .btn-secondary { background: rgba(255,255,255,0.05); color: #e5e0d7; border: 1px solid var(--border); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
     
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-    
-    .feature-card {
-      background: var(--surface);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 1.25rem;
-      padding: 2rem;
-      transition: transform 0.2s;
-    }
-    
+    .feature-card { background: var(--surface); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 1.25rem; padding: 2rem; transition: transform 0.2s; }
     .feature-card:hover { transform: translateY(-6px); }
-    
-    .feature-icon {
-      width: 64px; height: 64px; margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, var(--primary), #00a58c);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: #0a0a14; font-size: 1.5rem; font-weight: bold;
-    }
-    
+    .feature-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--primary), #00a58c); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0a0a14; font-size: 1.5rem; font-weight: bold; }
     .feature-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff; }
     .feature-desc { color: #a3a3a3; font-size: 0.9rem; line-height: 1.5; }
     
+    .demos { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%); }
+    .demos-container { max-width: 1200px; margin: 0 auto; }
+    .demos-title { font-family: var(--font-display); font-size: 2.2rem; text-align: center; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .demos-desc { color: #a3a3a3; text-align: center; margin-bottom: 2rem; font-size: 1.1rem; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .video-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; overflow: hidden; transition: transform 0.2s; }
+    .video-card:hover { transform: translateY(-4px); }
+    .video-thumb { position: relative; aspect-ratio: 16/9; background: #1a1a2e; cursor: pointer; }
+    .video-thumb::before { content: '▶'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary); opacity: 0.3; transition: opacity 0.2s; }
+    .video-thumb:hover::before { opacity: 1; }
+    .video-info { padding: 1.25rem; }
+    .video-title { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; color: #fff; }
+    .video-desc { font-size: 0.85rem; color: #a3a3a3; }
+    
     .cta-section { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%); }
     .cta-box { max-width: 600px; margin: 0 auto; text-align: center; }
+    .footer { padding: 2rem 1.5rem; text-align: center; color: #7a7a7a; font-size: 0.875rem; border-top: 1px solid var(--border); background: rgba(10,10,20,0.5); }
     
-    .footer {
-      padding: 2rem 1.5rem;
-      text-align: center;
-      color: #7a7a7a;
-      font-size: 0.875rem;
-      border-top: 1px solid var(--border);
-      background: rgba(10,10,20,0.5);
-    }
-    
-    .lang-toggle {
-      position: fixed; top: 1.5rem; right: 1.5rem;
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-      padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer;
-      transition: background 0.2s; font-size: 0.875rem; z-index: 100;
-    }
-    .lang-toggle:hover { background: rgba(255,255,255,0.1); }
-    
-    @media (max-width: 768px) {
-      .hero { min-height: 70vh; }
-      .hero-content { padding: 2rem; margin: 1rem; }
-      .title { font-size: 2.2rem; }
-      .subtitle { font-size: 1.1rem; }
-      .cta-group { flex-direction: column; }
-    }
+    @media (max-width: 768px) { .hero { min-height: 70vh; } .hero-content { padding: 2rem; margin: 1rem; } .title { font-size: 2.2rem; } .subtitle { font-size: 1.1rem; } .cta-group { flex-direction: column; } }
   </style>
 </head>
 <body>
   <header class="header">
     <nav class="nav">
       <a href="#" class="brand"><span>Cucumelo</span><span class="accent">Films</span></a>
-      <button class="lang-toggle" id="langToggle">ES</button>
-    </nav>
+    </div>
   </header>
   
   <section class="hero">
     <div class="hero-content">
-      <div class="title">White-Label Video Production for Agencies</div>
-      <p class="subtitle">Scale your creative capacity with our remote-first production team. Bilingual delivery in English and Spanish.</p>
+      <div class="title" data-en="White-Label Video Production for Agencies" data-es="Producción de Video Bajo Marca Blanca para Agencias">
+        <span class="lang-en">White-Label Video Production for Agencies</span>
+        <span class="lang-es" style="display:none;">Producción de Video Bajo Marca Blanca para Agencias</span>
+      </div>
+      <p class="subtitle" data-en="Scale your creative capacity with our remote-first production team. Bilingual delivery in English and Spanish." data-es="Escala tu capacidad creativa con nuestro equipo de producción remote-first. Entrega bilingüe en inglés y español.">
+        <span class="lang-en">Scale your creative capacity with our remote-first production team. Bilingual delivery in English and Spanish.</span>
+        <span class="lang-es" style="display:none;">Escala tu capacidad creativa con nuestro equipo de producción remote-first. Entrega bilingüe en inglés y español.</span>
+      </p>
       
       <div class="cta-group">
-        <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">Request Collaboration</a>
-        <a href="#services" class="btn btn-secondary">Our Services</a>
+        <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">
+          <span class="lang-en">Request Collaboration</span>
+          <span class="lang-es" style="display:none;">Solicitar Colaboración</span>
+        </a>
+        <a href="#portfolio" class="btn btn-secondary">
+          <span class="lang-en">View Portfolio</span>
+          <span class="lang-es" style="display:none;">Ver Portafolio</span>
+        </a>
       </div>
       
       <div class="subtitle" style="color: #7a7a7a; font-size: 1rem; margin-top: 2rem;">
-        Trusted by 189,000+ creative agencies worldwide • Remote-first workflow • Production ready in hours
+        <span class="lang-en">Trusted by 189,000+ creative agencies worldwide • Remote-first workflow • Production ready in hours</span>
+        <span class="lang-es" style="display:none;">Confiado por más de 189,000 agencias creativas en todo el mundo • Workflow remote-first • Listo para producción en horas</span>
       </div>
     </div>
   </section>
 
-  <section class="features" id="services">
+  <section id="services" class="features">
     <div class="feature-card">
       <div class="feature-icon">1</div>
-      <h3 class="feature-title">AI-Generated Ads</h3>
-      <p class="feature-desc">Fast creative testing with hook-optimized variations for Meta, TikTok, YouTube, LinkedIn campaigns.</p>
+      <h3 class="feature-title" data-en="AI Ads Production" data-es="Producción de Anuncios con IA"></h3>
+      <p class="feature-desc" data-en="Hook-tested ad variations for Meta, TikTok, YouTube, LinkedIn campaigns." data-es="Variaciones probadas para anuncios en Meta, TikTok, YouTube, LinkedIn."></p>
     </div>
-    
     <div class="feature-card">
       <div class="feature-icon">2</div>
-      <h3 class="feature-title">Roll Bs & Content</h3>
-      <p class="feature-desc">Behind-the-scenes, product showcases, and branded content optimized for paid social and organic reach.</p>
+      <h3 class="feature-title" data-en="Roll Bs & Content" data-es="Roll Bs y Contenido"></h3>
+      <p class="feature-desc" data-en="Behind-the-scenes, product showcases, and branded content optimized for paid social." data-es="Contenido behind-the-scenes, demos de productos y contenido brandado optimizado para redes pagadas."></p>
     </div>
-    
     <div class="feature-card">
       <div class="feature-icon">3</div>
-      <h3 class="feature-title">Music Videos</h3>
-      <p class="feature-desc">AI-generated visualizers and music videos for artists — fast turnaround with professional quality.</p>
+      <h3 class="feature-title" data-es="Music Videos" data-en="Videos Musicales"></h3>
+      <p class="feature-desc" data-en="AI-generated visualizers and music videos for artists — fast turnaround." data-es="Visualizadores y videos musicales generados con IA para artistas — entrega rápida."></p>
     </div>
   </section>
 
-  <section class="cta-section">
+  <section class="demos" id="portfolio">
+    <div class="demos-container">
+      <h2 class="demos-title" data-en="View Our Agency Work" data-es="Ver Nuestro Trabajo para Agencias">
+        <span class="lang-en">View Our Agency Work</span>
+        <span class="lang-es" style="display:none;">Ver Nuestro Trabajo para Agencias</span>
+      </h2>
+      <p class="demos-desc" data-en="Real projects delivered to creative agencies worldwide." data-es="Proyectos reales entregados a agencias creativas en todo el mundo.">
+        <span class="lang-en">Real projects delivered to creative agencies worldwide.</span>
+        <span class="lang-es" style="display:none;">Proyectos reales entregados a agencias creativas en todo el mundo.</span>
+      </p>
+      
+      <div class="video-grid">
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank">
+          <div class="video-thumb"><img src="https://i.imgur.com/D6kK3dF.png" alt="Agency Ad" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;"></div>
+          <div class="video-info">
+            <div class="video-title">SaaS Campaign - Meta</div>
+            <p class="video-desc">12 AI variations for A/B testing.</p>
+          </div>
+        </a>
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank">
+          <div class="video-thumb"><img src="https://i.imgur.com/6jN4K9M.png" alt="Product Demo" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;"></div>
+          <div class="video-info">
+            <div class="video-title">E-commerce Roll B Series</div>
+            <p class="video-desc">Product showcase with branding.</p>
+          </div>
+        </a>
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank">
+          <div class="video-thumb"><img src="https://i.imgur.com/8VxQhJz.png" alt="Music Video" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;"></div>
+          <div class="video-info">
+            <div class="video-title">Artist Campaign - TikTok</div>
+            <p class="video-desc">Music visualizer with brand integration.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
     <div class="cta-box">
-      <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Ready to scale your creative production?</h2>
-      <p style="color: #a3a3a3; margin-bottom: 2rem;">Book a 30-minute consultation to discuss your agency's video needs.</p>
-      <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">Book Consultation</a>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-en="Ready to scale your agency's creative capacity?" data-es="¿Listo para escalar la capacidad creativa de tu agencia?">
+        <span class="lang-en">Ready to scale your agency's creative capacity?</span>
+        <span class="lang-es" style="display:none;">¿Listo para escalar la capacidad creativa de tu agencia?</span>
+      </h2>
+      <p style="color: #a3a3a3; margin-bottom: 2rem;" data-en="Book a 30-minute creative consultation to discuss your overflow needs." data-es="Agenda una consulta creativa de 30 minutos para discutir tus necesidades de overflow.">
+        <span class="lang-en">Book a 30-minute creative consultation to discuss your overflow needs.</span>
+        <span class="lang-es" style="display:none;">Agenda una consulta creativa de 30 minutos para discutir tus necesidades de overflow.</span>
+      </p>
+      <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">
+        <span class="lang-en">Book Creative Consultation</span>
+        <span class="lang-es" style="display:none;">Reservar Consulta Creativa</span>
+      </a>
     </div>
   </section>
 
   <footer class="footer">
-    <p>Cucumelo Films — White-label video production from Costa Rica • Bilingual English/Spanish</p>
+    <p data-en="Cucumelo Films — White-label video production from Costa Rica • Bilingual English/Spanish" data-es="Cucumelo Films — Producción de video bajo marca blanca desde Costa Rica • Bilingüe inglés/español">
+      <span class="lang-en">Cucumelo Films — White-label video production from Costa Rica • Bilingual English/Spanish</span>
+      <span class="lang-es" style="display:none;">Cucumelo Films — Producción de video bajo marca blanca desde Costa Rica • Bilingüe inglés/español</span>
+    </p>
     <p style="margin-top: 0.5rem;">hello@cucumelofilms.com | WhatsApp: +506 XXX XXXX</p>
   </footer>
 
   <script>
-    document.getElementById('langToggle').addEventListener('click', function() {
-      this.textContent = this.textContent === 'ES' ? 'EN' : 'ES';
+    document.getElementById('langToggle')?.addEventListener('click', function() {
+      const isSpanish = this.textContent === 'ES';
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = isSpanish ? 'none' : 'block');
+      document.querySelectorAll('.lang-es').forEach(el => el.style.display = isSpanish ? 'block' : 'none');
+      this.textContent = isSpanish ? 'EN' : 'ES';
     });
   </script>
 </body>

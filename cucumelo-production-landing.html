@@ -6,7 +6,7 @@
   <title>Premium Film Production | Cucumelo Films</title>
   <meta name="description" content="Premium live-action film production from Costa Rica. Documentary-style storytelling, branded content, and cinematic productions for international brands." />
   <meta property="og:title" content="Premium Film Production | Cucumelo Films" />
-  <meta property="og:description" content>Premium live-action film production with documentary-style storytelling. Costa Rica-based studio serving international brands and agency partners." />
+  <meta property="og:description" content="Premium live-action film production with documentary-style storytelling. Costa Rica-based studio serving international brands and agency partners." />
   <meta property="og:type" website />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <style>
@@ -20,195 +20,171 @@
     .brand { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1.1rem; }
     .brand span { color: #fff; }
     .brand span.accent { color: var(--primary); }
+    .lang-toggle { position: fixed; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; transition: background 0.2s; font-size: 0.875rem; z-index: 100; }
+    .lang-toggle:hover { background: rgba(255,255,255,0.1); }
     
-    .hero { 
-      min-height: 100vh; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      padding: 2rem; 
-      background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%, #16213e 100%);
-      position: relative;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at 30% 30%, rgba(0,201,163,0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 70%, rgba(0,201,163,0.18) 0%, transparent 40%);
-    }
-    .hero-content { 
-      max-width: 800px; 
-      text-align: center;
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: 1.5rem;
-      padding: 3rem;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-    }
-    
-    .title { 
-      font-family: var(--font-display); 
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      line-height: 1.1; 
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #f5f5f5, var(--primary));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .subtitle { 
-      font-size: 1.3rem; 
-      color: #a3a3a3; 
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .cta-group { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 1rem; 
-      justify-content: center; 
-      margin-bottom: 2rem; 
-    }
-    
-    .btn {
-      padding: 1rem 2.5rem;
-      border-radius: 9999px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: #0a0a14;
-      box-shadow: 0 4px 20px rgba(0,201,163,0.3);
-    }
-    
+    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%, #16213e 100%); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(0,201,163,0.12) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(0,201,163,0.18) 0%, transparent 40%); }
+    .hero-content { max-width: 800px; text-align: center; background: var(--surface); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 1.5rem; padding: 3rem; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
+    .title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .subtitle { font-size: 1.3rem; color: #a3a3a3; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
+    .btn { padding: 1rem 2.5rem; border-radius: 9999px; font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; font-size: 1rem; }
+    .btn-primary { background: var(--primary); color: #0a0a14; box-shadow: 0 4px 20px rgba(0,201,163,0.3); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,201,163,0.4); }
-    
-    .btn-secondary {
-      background: rgba(255,255,255,0.05);
-      color: #e5e0d7;
-      border: 1px solid var(--border);
-    }
+    .btn-secondary { background: rgba(255,255,255,0.05); color: #e5e0d7; border: 1px solid var(--border); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
     
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto 4rem; padding: 0 1.5rem; }
-    
-    .feature-card {
-      background: var(--surface);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 1.25rem;
-      padding: 2rem;
-      transition: transform 0.2s;
-    }
-    
+    .feature-card { background: var(--surface); backdrop-filter: blur(10px); border: 1px solid var(--border); border-radius: 1.25rem; padding: 2rem; transition: transform 0.2s; }
     .feature-card:hover { transform: translateY(-6px); }
-    
-    .feature-icon {
-      width: 64px; height: 64px; margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, var(--primary), #00a58c);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      color: #0a0a14; font-size: 1.5rem; font-weight: bold;
-    }
-    
+    .feature-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; background: linear-gradient(135deg, var(--primary), #00a58c); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0a0a14; font-size: 1.5rem; font-weight: bold; }
     .feature-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff; }
     .feature-desc { color: #a3a3a3; font-size: 0.9rem; line-height: 1.5; }
     
+    .demos { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%); }
+    .demos-container { max-width: 1200px; margin: 0 auto; }
+    .demos-title { font-family: var(--font-display); font-size: 2.2rem; text-align: center; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .demos-desc { color: #a3a3a3; text-align: center; margin-bottom: 2rem; font-size: 1.1rem; }
+    .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .video-card { background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; overflow: hidden; transition: transform 0.2s; }
+    .video-card:hover { transform: translateY(-4px); }
+    .video-thumb { position: relative; aspect-ratio: 16/9; background: #1a1a2e; cursor: pointer; }
+    .video-thumb::before { content: '▶'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--primary); opacity: 0.3; transition: opacity 0.2s; }
+    .video-thumb:hover::before { opacity: 1; }
+    .video-info { padding: 1.25rem; }
+    .video-title { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; color: #fff; }
+    .video-desc { font-size: 0.85rem; color: #a3a3a3; }
+    
     .cta-section { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%); }
     .cta-box { max-width: 600px; margin: 0 auto; text-align: center; }
+    .footer { padding: 2rem 1.5rem; text-align: center; color: #7a7a7a; font-size: 0.875rem; border-top: 1px solid var(--border); background: rgba(10,10,20,0.5); }
     
-    .footer {
-      padding: 2rem 1.5rem;
-      text-align: center;
-      color: #7a7a7a;
-      font-size: 0.875rem;
-      border-top: 1px solid var(--border);
-      background: rgba(10,10,20,0.5);
-    }
-    
-    .lang-toggle {
-      position: fixed; top: 1.5rem; right: 1.5rem;
-      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-      padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer;
-      transition: background 0.2s; font-size: 0.875rem; z-index: 100;
-    }
-    .lang-toggle:hover { background: rgba(255,255,255,0.1); }
-    
-    @media (max-width: 768px) {
-      .hero { min-height: 70vh; }
-      .hero-content { padding: 2rem; margin: 1rem; }
-      .title { font-size: 2.2rem; }
-      .subtitle { font-size: 1.1rem; }
-      .cta-group { flex-direction: column; }
-    }
+    @media (max-width: 768px) { .hero { min-height: 70vh; } .hero-content { padding: 2rem; margin: 1rem; } .title { font-size: 2.2rem; } .subtitle { font-size: 1.1rem; } .cta-group { flex-direction: column; } }
   </style>
 </head>
 <body>
   <header class="header">
     <nav class="nav">
       <a href="#" class="brand"><span>Cucumelo</span><span class="accent">Films</span></a>
-      <button class="lang-toggle" id="langToggle">ES</button>
-    </nav>
+    </div>
   </header>
   
   <section class="hero">
     <div class="hero-content">
-      <div class="title">Premium Film Production from Costa Rica</div>
-      <p class="subtitle">Documentary-style storytelling, branded content, and cinematic productions for international brands. Full crew, professional cameras, and bilingual post-production.</p>
+      <div class="title" data-en="Premium Film Production from Costa Rica" data-es="Producción Cinematográfica Premium desde Costa Rica">
+        <span class="lang-en">Premium Film Production from Costa Rica</span>
+        <span class="lang-es" style="display:none;">Producción Cinematográfica Premium desde Costa Rica</span>
+      </div>
+      <p class="subtitle" data-en="Documentary-style storytelling, branded content, and cinematic productions for international brands." data-es="Storytelling estilo documental, contenido brandado y producciones cinematográficas para marcas internacionales.">
+        <span class="lang-en">Documentary-style storytelling, branded content, and cinematic productions for international brands.</span>
+        <span class="lang-es" style="display:none;">Storytelling estilo documental, contenido brandado y producciones cinematográficas para marcas internacionales.</span>
+      </p>
       
       <div class="cta-group">
-        <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">Request Production Brief</a>
-        <a href="#services" class="btn btn-secondary">Our Services</a>
+        <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">
+          <span class="lang-en">Request Production Brief</span>
+          <span class="lang-es" style="display:none;">Solicitar Brief de Producción</span>
+        </a>
+        <a href="#portfolio" class="btn btn-secondary">
+          <span class="lang-en">View Portfolio</span>
+          <span class="lang-es" style="display:none;">Ver Portafolio</span>
+        </a>
       </div>
       
       <div class="subtitle" style="color: #7a7a7a; font-size: 1rem; margin-top: 2rem;">
-        Professional film crews • On-site production available • International delivery • Bilingual English/Spanish
+        <span class="lang-en">Professional crews • On-site production available • International delivery • Bilingual English/Spanish</span>
+        <span class="lang-es" style="display:none;">Equipos profesionales • Producción presencial disponible • Entrega internacional • Bilingüe inglés/español</span>
       </div>
     </div>
   </section>
 
-  <section class="features" id="services">
+  <section id="services" class="features">
     <div class="feature-card">
       <div class="feature-icon">1</div>
-      <h3 class="feature-title">Documentary Storytelling</h3>
-      <p class="feature-desc">Authentic narratives with professional cinematography. Perfect for brand origin stories, impact reporting, and thought leadership.</p>
+      <h3 class="feature-title" data-en="Documentary Storytelling" data-es="Storytelling Documental"></h3>
+      <p class="feature-desc" data-en="Authentic narratives with professional cinematography." data-es="Narrativas auténticas con cinematografía profesional."></p>
     </div>
-    
     <div class="feature-card">
       <div class="feature-icon">2</div>
-      <h3 class="feature-title">Branded Commercials</h3>
-      <p class="feature-desc">High-production-value commercials with cinematic style. Ideal for product launches, campaigns, and executive storytelling.</p>
+      <h3 class="feature-title" data-en="Branded Commercials" data-es="Comerciales Branded"></h3>
+      <p class="feature-desc" data-en="High-production-value commercials with cinematic style." data-es="Comerciales de alto valor con estilo cinematográfico."></p>
     </div>
-    
     <div class="feature-card">
       <div class="feature-icon">3</div>
-      <h3 class="feature-title">Executive Interviews</h3>
-      <p class="feature-desc">Professional interview production with multi-camera setup, lighting, and seamless editing for keynote presentations.</p>
+      <h3 class="feature-title" data-en="Executive Interviews" data-es="Entrevistas Ejecutivas"></h3>
+      <p class="feature-desc" data-en="Professional interview production with multi-camera setup." data-es="Producción profesional de entrevistas con setup multicámara."></p>
     </div>
   </section>
 
-  <section class="cta-section">
+  <section class="demos" id="portfolio">
+    <div class="demos-container">
+      <h2 class="demos-title" data-en="View Our Premium Work" data-es="Ver Nuestro Trabajo Premium">
+        <span class="lang-en">View Our Premium Work</span>
+        <span class="lang-es" style="display:none;">Ver Nuestro Trabajo Premium</span>
+      </h2>
+      <p class="demos-desc" data-en="Selección de trabajos premium para marcas y agencias internacionales." data-es="Selected premium projects for international brands and agencies.">
+        <span class="lang-en">Selected premium projects for international brands and agencies.</span>
+        <span class="lang-es" style="display:none;">Selección de trabajos premium para marcas y agencias internacionales.</span>
+      </p>
+      
+      <div class="video-grid">
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank">
+          <div class="video-thumb"><img src="https://i.imgur.com/D6kK3dF.png" alt="Documentary" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;"></div>
+          <div class="video-info">
+            <div class="video-title">Brand Origin Story</div>
+            <p class="video-desc">Documentary series for tech brand launch.</p>
+          </div>
+        </a>
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank">
+          <div class="video-thumb"><img src="https://i.imgur.com/6jN4K9M.png" alt="Commercial" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;"></div>
+          <div class="video-info">
+            <div class="video-title">Luxury Hotel Campaign</div>
+            <p class="video-desc">Cinematic commercial for resort chain.</p>
+          </div>
+        </a>
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank">
+          <div class="video-thumb"><img src="https://i.imgur.com/8VxQhJz.png" alt="Interview" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;"></div>
+          <div class="video-info">
+            <div class="video-title">Executive Leadership Series</div>
+            <p class="video-desc">Multi-part interview documentary.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
     <div class="cta-box">
-      <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Ready to discuss your premium production project?</h2>
-      <p style="color: #a3a3a3; margin-bottom: 2rem;">Book a creative consultation to review your project scope, budget, and timeline.</p>
-      <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">Book Consultation</a>
+      <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-en="Ready to discuss your premium production project?" data-es="¿Listo para discutir tu proyecto de producción premium?">
+        <span class="lang-en">Ready to discuss your premium production project?</span>
+        <span class="lang-es" style="display:none;">¿Listo para discutir tu proyecto de producción premium?</span>
+      </h2>
+      <p style="color: #a3a3a3; margin-bottom: 2rem;" data-en="Book a creative consultation to review your project scope, budget, and timeline." data-es="Agenda una consulta creativa para revisar tu alcance, presupuesto y timeline.">
+        <span class="lang-en">Book a creative consultation to review your project scope, budget, and timeline.</span>
+        <span class="lang-es" style="display:none;">Agenda una consulta creativa para revisar tu alcance, presupuesto y timeline.</span>
+      </p>
+      <a href="mailto:hello@cucumelofilms.com" class="btn btn-primary">
+        <span class="lang-en">Book Consultation</span>
+        <span class="lang-es" style="display:none;">Reservar Consulta</span>
+      </a>
     </div>
   </section>
 
   <footer class="footer">
-    <p>Cucumelo Films — Premium film production from Costa Rica • Bilingual English/Spanish</p>
+    <p data-en="Cucumelo Films — Premium film production from Costa Rica • Bilingual English/Spanish" data-es="Cucumelo Films — Producción cinematográfica premium desde Costa Rica • Bilingüe inglés/español">
+      <span class="lang-en">Cucumelo Films — Premium film production from Costa Rica • Bilingual English/Spanish</span>
+      <span class="lang-es" style="display:none;">Cucumelo Films — Producción cinematográfica premium desde Costa Rica • Bilingüe inglés/español</span>
+    </p>
     <p style="margin-top: 0.5rem;">hello@cucumelofilms.com | WhatsApp: +506 XXX XXXX</p>
   </footer>
 
   <script>
-    document.getElementById('langToggle').addEventListener('click', function() {
-      this.textContent = this.textContent === 'ES' ? 'EN' : 'ES';
+    document.getElementById('langToggle')?.addEventListener('click', function() {
+      const isSpanish = this.textContent === 'ES';
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = isSpanish ? 'none' : 'block');
+      document.querySelectorAll('.lang-es').forEach(el => el.style.display = isSpanish ? 'block' : 'none');
+      this.textContent = isSpanish ? 'EN' : 'ES';
     });
   </script>
 </body>
