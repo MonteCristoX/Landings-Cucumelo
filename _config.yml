@@ -1,0 +1,7 @@
+# Silence Jekyll warnings
+host: true
+theme: minima
+plugins: []
+exclude_from_feed: true
+markdown: kramdown
+highlighter: rouge
