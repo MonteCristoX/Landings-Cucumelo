@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Video Generation | Cucumelo Films</title>
+  <meta name="description" content="AI-powered video generation: ads, roll Bs, music videos. Create cinematic content in minutes. Bilingual production." />
+  <meta property="og:title" content="AI Video Generation | Cucumelo Films" />
+  <meta property="og:description" content="Generate AI video content including ads, roll Bs, and music videos. Fast turnaround with bilingual delivery." />
+  <meta property="og:type" website />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+      --text-sm: clamp(0.85rem, 0.75rem + 0.3vw, 0.95rem);
+      --text-base: clamp(0.95rem, 0.85rem + 0.3vw, 1.05rem);
+      --text-lg: clamp(1.1rem, 0.95rem + 0.7vw, 1.35rem);
+      --text-xl: clamp(1.35rem, 1.1rem + 1.1vw, 1.75rem);
+      --text-2xl: clamp(1.8rem, 1.3rem + 1.8vw, 2.5rem);
+      --text-3xl: clamp(2.2rem, 1.5rem + 2.5vw, 3.2rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #0a0a0a; --color-surface: #141414; --color-surface-2: #1a1a1a;
+      --color-text: #f5f5f5; --color-text-muted: #a3a3a3; --color-text-faint: #7a7a7a; --color-text-inverse: #0a0a0a;
+      --color-primary: #00c9a3; --color-primary-hover: #00a58c; --color-secondary: #ff4d4d;
+      --color-border: rgba(255,255,255,0.08);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3); --shadow-md: 0 8px 25px rgba(0,0,0,0.4); --shadow-lg: 0 15px 40px rgba(0,0,0,0.5);
+      --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 999px;
+      --content: 1200px; --font-display: 'Cabinet Grotesk', 'Inter', sans-serif; --font-body: 'Satoshi', 'Inter', sans-serif;
+    }
+    :root [data-theme="light"] {
+      --color-bg: #f7f6f2; --color-surface: #ffffff; --color-surface-2: #f0ede8; --color-text: #1f1c18; --color-text-muted: #706d66; --color-text-faint: #aca79f; --color-text-inverse: #f7f6f2; --color-primary: #0d6b66;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { 
+      min-height: 100dvh; 
+      font-family: var(--font-body); 
+      font-size: var(--text-base); 
+      line-height: 1.6; 
+      background: var(--color-bg); 
+      color: var(--color-text);
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      z-index: -2;
+      opacity: 0.7;
+    }
+    
+    /* Video Background Effect */
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-video-bg::before {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.95) 60%);
+      animation: pulse 8s ease-in-out infinite;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+    }
+    
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    
+    .skip-link {
+      position: absolute; left: -9999px; top: auto;
+    }
+    .skip-link:focus { 
+      left: var(--space-4); top: var(--space-4); 
+      background: var(--color-primary); color: var(--color-text-inverse); 
+      padding: var(--space-3) var(--space-4); z-index: 100;
+    }
+    
+    .container { width: min(calc(100% - 2rem), var(--content)); margin: 0 auto; }
+    
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in oklab, var(--color-bg) 85%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .header.scrolled { background: color-mix(in oklab, var(--color-bg) 95%, transparent); }
+    
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: var(--space-4) 0; gap: var(--space-4);
+    }
+    .brand { display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); font-weight: 700; letter-spacing: .04em; }
+    .brand span { opacity: 0.9; }
+    
+    .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+    .lang-toggle, .theme-toggle, .cta-link { 
+      min-height: 40px; padding: 0 var(--space-4); 
+      border: 1px solid var(--color-border); 
+      border-radius: var(--radius-full); 
+      font-size: var(--text-sm);
+      transition: all 0.2s ease;
+    }
+    .cta-link { background: var(--color-primary); color: var(--color-text-inverse); border-color: var(--color-primary); }
+    .cta-link:hover { background: var(--color-primary-hover); transform: translateY(-1px); }
+    .theme-toggle, .lang-toggle { background: var(--color-surface); }
+    
+    main { position: relative; z-index: 0; }
+    
+    .hero {
+      padding: clamp(var(--space-16), 12vw, var(--space-24)) 0 var(--space-12);
+      position: relative;
+      color: var(--color-text);
+    }
+    .hero-content {
+      max-width: 600px;
+    }
+    .eyebrow {
+      font-size: var(--text-xs); letter-spacing: .15em; text-transform: uppercase;
+      color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-5);
+      display: inline-block;
+    }
+    h1 {
+      font-family: var(--font-display); font-size: var(--text-4xl); line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: var(--space-5);
+      background: linear-gradient(to right, var(--color-text), var(--color-primary));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-copy {
+      max-width: 56ch; margin-bottom: var(--space-8); color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+    .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-6); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 var(--space-6); border-radius: var(--radius-full);
+      font-size: var(--text-sm); font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--color-primary); color: var(--color-text-inverse);
+      border: none; box-shadow: 0 4px 20px rgba(0,201,163,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(0,201,163,0.4); }
+    .btn-secondary {
+      background: var(--color-surface); color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    .btn-secondary:hover { background: var(--color-surface-2); }
+    
+    section { padding: clamp(var(--space-12), 6vw, var(--space-20)) 0; }
+    .section-head { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-8); margin-bottom: var(--space-10); align-items: start; }
+    h2 {
+      font-family: var(--font-display); font-size: var(--text-3xl); line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: var(--space-4);
+    }
+    .section-head p { color: var(--color-text-muted); max-width: 54ch; }
+    
+    .grid, .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); }
+    
+    .card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-6);
+      box-shadow: var(--shadow-sm); transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .card h3 { font-size: var(--text-lg); line-height: 1.2; margin-bottom: var(--space-3); font-family: var(--font-display); color: var(--color-text); }
+    .card p, .card li { color: var(--color-text-muted); }
+    
+    .portfolio-grid { --cols: repeat(auto-fit, minmax(320px, 1fr)); }
+    .portfolio-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease;
+    }
+    .portfolio-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .portfolio-card video { width: 100%; height: 200px; object-fit: cover; }
+    .portfolio-content { padding: var(--space-4); }
+    .portfolio-content h4 { font-family: var(--font-display); font-size: var(--text-base); margin-bottom: var(--space-2); color: var(--color-text); }
+    
+    .list { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+    .list li::before { content: "→ "; color: var(--color-primary); font-weight: 600; }
+    
+    .cta { padding: var(--space-20) 0; clear: both; background: var(--color-surface-2); }
+    .cta-box {
+      background: linear-gradient(135deg, color-mix(in oklab, var(--color-primary) 8%, var(--color-surface)), var(--color-surface));
+      border: 1px solid var(--color-border); border-radius: var(--radius-xl);
+      padding: clamp(var(--space-8), 5vw, var(--space-14)); box-shadow: var(--shadow-lg);
+      max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .cta-box h2 { margin-bottom: var(--space-4); font-size: var(--text-2xl); }
+    .cta-box p { color: var(--color-text-muted); max-width: 60ch; margin: 0 auto; }
+    
+    .contact-form {
+      display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-8);
+      text-align: left;
+    }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      padding: var(--space-3); border: 1px solid var(--color-border);
+      border-radius: var(--radius-md); font-family: var(--font-body); font-size: var(--text-base);
+      background: var(--color-bg); color: var(--color-text);
+    }
+    .contact-form button { width: 100%; }
+    
+    .footer {
+      padding: var(--space-10) 0 var(--space-12); color: var(--color-text-muted);
+      font-size: var(--text-sm); border-top: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+    .footer-line { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; padding-top: var(--space-5); }
+    
+    .lang { display: none; } .lang.active { display: block; }
+    .lang-inline { display: none; } .lang-inline.active { display: inline; }
+    
+    @media (max-width: 900px) {
+      .hero { padding: var(--space-12) 0 var(--space-8); }
+      .section-head, h1 { grid-template-columns: 1fr; }
+      h1 { max-width: 14ch; font-size: var(--text-3xl); }
+      .hero-content { max-width: 100%; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .nav-actions { width: 100%; justify-content: center; }
+      .lang-toggle, .theme-toggle, .cta-link { flex: 1 1 auto; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 1rem), var(--content)); }
+      .cta-box { padding: var(--space-6); }
+    }
+    @media (prefers-reduced-motion: reduce) { 
+      html { scroll-behavior: auto; } 
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Cucumelo Films home">
+        <span>CEF</span>
+      </a>
+      <div class="nav-actions">
+        <button class="lang-toggle" data-language-toggle aria-label="Switch language">ES</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a class="cta-link" href="#contact">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="hero-video-bg"></div>
+      <div class="container">
+        <div class="lang active" data-lang="en">
+          <div class="hero-content">
+            <div class="eyebrow">AI-Powered Video Generation</div>
+            <h1>Generate cinematic AI video content in minutes</h1>
+            <p class="hero-copy">From ads and roll Bs to music videos, our AI creates professional video content optimized for your platform — delivered in English and Spanish.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Request AI Video Generation</a>
+              <a href="#portfolio" class="btn btn-secondary">View Sample Output</a>
+            </div>
+          </div>
+        </div>
+        <div class="lang" data-lang="es">
+          <div class="hero-content">
+            <div class="eyebrow">Generación de video con IA</div>
+            <h1>Genera contenido de video cinematográfico con IA en minutos</h1>
+            <p class="hero-copy">Desde anuncios y roll Bs hasta videos musicales, nuestra IA crea contenido profesional optimizado para tu plataforma — entregado en inglés y español.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Solicitar generación de video con IA</a>
+              <a href="#portfolio" class="btn btn-secondary">Ver resultados de ejemplo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Sample Output</span>
+            <span class="lang-inline" data-lang="es">Resultados de ejemplo</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">AI-generated content for ads, roll Bs, and music videos — all optimized for platform performance.</p>
+            <p class="lang" data-lang="es">Contenido generado con IA para anuncios, roll Bs y videos musicales — optimizado para rendimiento.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <video autoplay muted loop playsinline>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="portfolio-content">
+              <h4 class="lang active" data-lang="en">Commercial Ad - 15s</h4>
+              <h4 class="lang" data-lang="es">Anuncio comercial - 15s</h4>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <video autoplay muted loop playsinline>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="portfolio-content">
+              <h4 class="lang active" data-lang="en">Roll B - Product Showcase</h4>
+              <h4 class="lang" data-lang="es">Roll B - Demostración de producto</h4>
+            </div>
+          </article>
+          <article class="portfolio-card">
+            <video autoplay muted loop playsinline>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            </video>
+            <div class="portfolio-content">
+              <h4 class="lang active" data-lang="en">Music Video - 30s</h4>
+              <h4 class="lang" data-lang="es">Video musical - 30s</h4>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">What We Create</span>
+            <span class="lang-inline" data-lang="es">Lo que creamos</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Professional AI video content delivered at speed.</p>
+            <p class="lang" data-lang="es">Contenido de video profesional con IA entregado rápidamente.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">AI-Generated Ads</h3>
+            <h3 class="lang" data-lang="es">Anuncios con IA</h3>
+            <p class="lang active" data-lang="en">Hook-tested ad variations for Meta, TikTok, YouTube, LinkedIn — ready for launch in hours, not weeks.</p>
+            <p class="lang" data-lang="es">Variaciones de anuncios probados para Meta, TikTok, YouTube, LinkedIn — listos para lanzar en horas, no semanas.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Roll Bs</h3>
+            <h3 class="lang" data-lang="es">Roll Bs</h3>
+            <p class="lang active" data-lang="en">Behind-the-scenes content, product showcases, and event highlights — styled and branded to match your campaign.</p>
+            <p class="lang" data-lang="es">Contenido behind-the-scenes, demos de productos y highlights de eventos — estilizados y brandados.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Music Videos</h3>
+            <h3 class="lang" data-lang="es">Videos musicales</h3>
+            <p class="lang active" data-lang="en">AI-generated visualizers and music videos for artists and brands — with licensed stock and custom animation.</p>
+            <p class="lang" data-lang="es">Visualizadores y videos musicales generados con IA — con stock licenciado y animación personalizada.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Shorts & Reels</h3>
+            <h3 class="lang" data-lang="es">Shorts y Reels</h3>
+            <p class="lang active" data-lang="en">Vertical video content optimized for TikTok, Instagram Reels, YouTube Shorts — hooks built for engagement.</p>
+            <p class="lang" data-lang="es">Video vertical optimizado para TikTok, Instagram Reels, YouTube Shorts — hooks optimizados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">How It Works</span>
+            <span class="lang-inline" data-lang="es">Cómo funciona</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Fast, collaborative AI video production pipeline.</p>
+            <p class="lang" data-lang="es">Pipeline rápido de producción colaborativa.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">01. Brief</h3>
+            <h3 class="lang" data-lang="es">01. Brief</h3>
+            <p class="lang active" data-lang="en">Share your concept, platform, and timeline. We create a production plan in 24 hours.</p>
+            <p class="lang" data-lang="es">Comparte tu concepto, plataforma y timeline. Creamos un plan en 24 horas.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">02. AI Generation</h3>
+            <h3 class="lang" data-lang="es">02. Generación IA</h3>
+            <p class="lang active" data-lang="en">Our system generates 10+ creative directions. You approve the best options.</p>
+            <p class="lang" data-lang="es">Nuestro sistema genera 10+ direcciones creativas. Tú aprobaste las mejores.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">03. Production</h3>
+            <h3 class="lang" data-lang="es">03. Producción</h3>
+            <p class="lang active" data-lang="en">Professional editing, color grading, and sound design. Bilingual versions included.</p>
+            <p class="lang" data-lang="es">Edición, color grading y sound design. Versiones bilingües incluidas.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">04. Delivery</h3>
+            <h3 class="lang" data-lang="es">04. Entrega</h3>
+            <p class="lang active" data-lang="en">Final assets optimized per platform, with source files for your team.</p>
+            <p class="lang" data-lang="es">Assets finales optimizados por plataforma, con archivos fuente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Ready to generate your AI video content?</span>
+            <span class="lang-inline" data-lang="es">¿Listo para generar tu contenido de video con IA?</span>
+          </h2>
+          <p class="lang active" data-lang="en">Book a 30-minute creative session to discuss your video project and see samples.</p>
+          <p class="lang" data-lang="es">Agenda una sesión creativa de 30 minutos para discutir tu proyecto de video.</p>
+          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="AI Video Generation Request">
+            <div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+              <input type="text" name="name" placeholder="Name / Nombre" required>
+              <input type="email" name="email" placeholder="Email / Correo" required>
+            </div>
+            <input type="text" name="project" placeholder="Type of video content (ads, roll B, music video)">
+            <textarea name="message" rows="4" placeholder="Describe your project: concept, platform, deadline." required></textarea>
+            <button type="submit">
+              <span class="lang active" data-lang="en">Request AI Video Generation</span>
+              <span class="lang" data-lang="es">Solicitar generación de video</span>
+            </button>
+          </form>
+          <p style="margin-top:1rem;font-size:0.85rem;color:var(--color-text-muted);">
+            <span class="lang active" data-lang="en">Or: <a href="mailto:hello@cucumelofilms.com">hello@cucumelofilms.com</a> | <a href="https://wa.me/YOUR_PHONE">WhatsApp</a></span>
+            <span class="lang" data-lang="es">O: <a href="mailto:hola@cucumelofilms.com">hola@cucumelofilms.com</a> | <a href="https://wa.me/YOUR_PHONE">WhatsApp</a></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-line">
+      <div>
+        <span class="lang-inline active" data-lang="en">Cucumelo Films — AI video generation from Costa Rica.</span>
+        <span class="lang-inline" data-lang="es">Cucumelo Films — Generación de video con IA desde Costa Rica.</span>
+      </div>
+      <div>
+        <span class="lang-inline active" data-lang="en">Bilingual English/Spanish</span>
+        <span class="lang-inline" data-lang="es">Bilingüe inglés/español</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      const langToggle = document.querySelector('[data-language-toggle]');
+      const header = document.getElementById('header');
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'dark';
+      let language = 'en';
+      root.setAttribute('data-theme', theme);
+
+      function renderTheme(){
+        root.setAttribute('data-theme', theme);
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        themeToggle.innerHTML = theme === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      }
+
+      function renderLanguage(){
+        document.querySelectorAll('[data-lang]').forEach(el => el.classList.toggle('active', el.getAttribute('data-lang') === language));
+        langToggle.textContent = language === 'en' ? 'ES' : 'EN';
+        langToggle.setAttribute('aria-label', language === 'en' ? 'Cambiar a español' : 'Switch to English');
+        document.documentElement.lang = language;
+        const cta = document.querySelector('.cta-link');
+        if (cta) cta.textContent = language === 'en' ? 'Get Started' : 'Comenzar';
+      }
+
+      themeToggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
+      langToggle.addEventListener('click', () => { language = language === 'en' ? 'es' : 'en'; renderLanguage(); });
+      window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12));
+      renderTheme();
+      renderLanguage();
+    })();
+  </script>
+</body>
+</html>

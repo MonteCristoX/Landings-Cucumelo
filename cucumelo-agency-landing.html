@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>White-label Production Partner | Cucumelo Films</title>
+  <meta name="description" content="White-label production partner for agencies. Remote-first video production that scales with your demand. Costa Rica-based, international overflow support." />
+  <meta property="og:title" content="White-label Production Partner | Cucumelo Films" />
+  <meta property="og:description" content="White-label production as overflow support for creative and paid media agencies. Remote-first collaboration, bilingual output, international delivery." />
+  <meta property="og:type" content="website" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f7f6f2; --color-surface: #fbfbf9; --color-surface-2: #f0ede8; --color-surface-offset:#e9e4dd;
+      --color-text:#1f1c18; --color-text-muted:#706d66; --color-text-faint:#aca79f; --color-text-inverse:#f7f6f2;
+      --color-primary:#0d6b66; --color-primary-hover:#094b48; --color-secondary:#c06c2c; --color-border:rgba(31,28,24,.12);
+      --shadow-sm:0 1px 2px rgba(16,12,8,.06); --shadow-md:0 12px 30px rgba(16,12,8,.08); --shadow-lg:0 24px 60px rgba(16,12,8,.14);
+      --radius-sm:0.375rem; --radius-md:0.75rem; --radius-lg:1.25rem; --radius-xl:1.75rem; --radius-full:9999px;
+      --content:1200px; --font-display:'Cabinet Grotesk', 'Arial', sans-serif; --font-body:'Satoshi', 'Inter', sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg:#171614; --color-surface:#1d1c1a; --color-surface-2:#23211e; --color-surface-offset:#2a2723;
+      --color-text:#e5e0d7; --color-text-muted:#a09b94; --color-text-faint:#6e6a64; --color-text-inverse:#171614;
+      --color-primary:#63a9a4; --color-primary-hover:#88c2be; --color-secondary:#e7a565; --color-border:rgba(229,224,215,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.24); --shadow-md:0 12px 30px rgba(0,0,0,.3); --shadow-lg:0 24px 60px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .skip-link{position:absolute;left:-9999px;top:auto}.skip-link:focus{left:var(--space-4);top:var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-3) var(--space-4);z-index:100}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--color-bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid transparent}
+    .header.scrolled{border-color:var(--color-border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .brand svg{width:42px;height:42px}
+    .nav-actions{display:flex;align-items:center;gap:var(--space-2)}
+    .lang-toggle,.theme-toggle,.cta-link{min-height:44px;padding:0 var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:var(--text-sm)}
+    .cta-link{background:var(--color-primary);color:var(--color-text-inverse);border-color:transparent}
+    .theme-toggle,.lang-toggle{background:var(--color-surface)}
+    main{overflow:hidden}
+    .hero{padding:clamp(var(--space-12),8vw,var(--space-20)) 0 var(--space-16);position:relative}
+    .hero-metrics{display:grid;grid-template-columns:repeat(auto-fit,minimax(200px,1fr));gap:var(--space-4);margin-top:var(--space-6)}
+    .metric{padding:var(--space-4);border-radius:var(--radius-lg);background:color-mix(in oklab,var(--color-bg) 35%,var(--color-surface));border:1px solid var(--color-border)}
+    .metric strong{display:block;font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05}
+    .eyebrow{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-4)}
+    h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05;letter-spacing:-.04em;max-width:42ch}
+    .hero-copy{max-width:56ch;margin-top:var(--space-5);color:var(--color-text-muted)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--space-5);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700}
+    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse)}
+    .btn-secondary{background:var(--color-surface);border:1px solid var(--color-border)}
+    section{padding:clamp(var(--space-10),6vw,var(--space-18)) 0}
+    .section-head{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-8);margin-bottom:var(--space-10);align-items:start}
+    h2{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05;letter-spacing:-.03em}
+    .section-head p{color:var(--color-text-muted);max-width:52ch}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minimax(280px,1fr));gap:var(--space-6)}
+    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .card h3{font-size:var(--text-lg);line-height:1.15;margin-bottom:var(--space-3);font-family:var(--font-display)}
+    .card p,.card li{color:var(--color-text-muted)}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minimax(300px,1fr));gap:var(--space-6)}
+    .portfolio-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm)}
+    .portfolio-card img{aspect-ratio:16/9;width:100%;object-fit:cover}
+    .portfolio-content{padding:var(--space-4)}
+    .portfolio-content strong{font-family:var(--font-display);color:var(--color-text)}
+    .list{display:grid;gap:var(--space-2);margin-top:var(--space-4)}
+    .list li::before{content:"— ";color:var(--color-secondary);font-weight:700}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+    .panel{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .panel h3{font-size:var(--text-lg);margin-bottom:var(--space-3);font-family:var(--font-display)}
+    .panel p,.panel li{color:var(--color-text-muted)}
+    .cta{padding:var(--space-16) 0;clear:both}
+    .cta-box{background:linear-gradient(135deg,color-mix(in oklab,var(--color-primary) 12%,var(--color-surface)),var(--color-surface));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-6),5vw,var(--space-12));box-shadow:var(--shadow-md)}
+    .cta-box{max-width:800px;margin:0 auto}
+    .cta-box h2{margin-bottom:var(--space-4)}
+    .cta-box p{color:var(--color-text-muted);max-width:56ch;margin-top:var(--space-4)}
+    .contact-form{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-6)}
+    .contact-form input,.contact-form textarea,.contact-form select{padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-md);font-family:var(--font-body)}
+    .contact-form input,.contact-form textarea{font-size:var(--text-base)}
+    .contact-form button{width:fit-content;padding:0 var(--space-6);border-radius:var(--radius-full);font-weight:700;background:var(--color-primary);color:var(--color-text-inverse);cursor:pointer}
+    .footer{padding:var(--space-8) 0 var(--space-10);color:var(--color-text-muted);font-size:var(--text-sm)}
+    .footer-line{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;border-top:1px solid var(--color-border);padding-top:var(--space-5)}
+    .lang{display:none}.lang.active{display:block}
+    .lang-inline{display:none}.lang-inline.active{display:inline}
+    @media (max-width: 900px){
+      .hero,.section-head,.split,.cta-box{grid-template-columns:1fr}
+      h1{max-width:14ch}
+      .nav{align-items:flex-start;flex-direction:column}
+      .nav-actions{width:100%;flex-wrap:wrap}
+      .lang-toggle,.theme-toggle,.cta-link{flex:1 1 auto;text-align:center;justify-content:center;display:inline-flex;align-items:center}
+    }
+    @media (max-width: 560px){
+      .container{width:min(calc(100% - 1.25rem),var(--content))}
+    }
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Cucumelo Films home">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="6" width="52" height="52" rx="18" stroke="currentColor" stroke-width="4"/>
+          <path d="M22 32C22 24.268 28.268 18 36 18H42V26H36C32.134 26 29 29.134 29 33C29 36.866 32.134 40 36 40H42V48H35C27.82 48 22 42.18 22 35V32Z" fill="currentColor"/>
+          <circle cx="22" cy="22" r="4" fill="currentColor"/>
+        </svg>
+        <span>Cucumelo Films</span>
+      </a>
+      <div class="nav-actions">
+        <button class="lang-toggle" data-language-toggle aria-label="Switch language">ES</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a class="cta-link" href="#contact">Request white-label production</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="lang active" data-lang="en">
+          <div class="eyebrow">White-label Video Production for Agencies</div>
+          <h1>Remote-first video production that scales with your agency's demand</h1>
+          <p class="hero-copy">Cucumelo Films provides white-label production services for creative agencies needing overflow capacity, international delivery, or specialized video expertise—fully brandable under your agency identity.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Request white-label production</a>
+            <a href="#clients" class="btn btn-secondary">See agency clients</a>
+          </div>
+        </div>
+        <div class="lang" data-lang="es">
+          <div class="eyebrow">Producción de video bajo marca blanca para agencias</div>
+          <h1>Producción de video remote-first que escala con la demanda de tu agencia</h1>
+          <p class="hero-copy">Cucumelo Films provee servicios de producción bajo marca blanca para agencias creativas que necesitan capacidad de overflow, entrega internacional, o experiencia especializada en video—totalmente brandable bajo tu identidad de agencia.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Solicitar producción bajo marca blanca</a>
+            <a href="#clients" class="btn btn-secondary">Ver clientes de agencia</a>
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric"><strong>White-label delivery</strong><span>All work branded under your agency identity.</span></div>
+          <div class="metric"><strong>Cost-effective scaling</strong><span>No need to hire full-time production staff.</span></div>
+          <div class="metric"><strong>Remote-first</strong><span>Fully managed from Costa Rica to your location.</span></div>
+          <div class="metric"><strong>Bilingual</strong><span>English and Spanish production workflows.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="clients">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Agency Partners</span>
+            <span class="lang-inline" data-lang="es">Aliados de agencia</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">We partner with creative and paid media agencies to provide overflow production capacity and specialized expertise.</p>
+            <p class="lang" data-lang="es">Socios con agencias creativas y de paid media para proveer capacidad de producción y experiencia especializada.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <img src="https://via.placeholder.com/600x400/0d6b66/ffffff?text=Agency+Case+1" alt="Agency Case 1">
+            <div class="portfolio-content">
+              <strong class="lang active" data-lang="en">Performance Marketing Agency</strong>
+              <strong class="lang" data-lang="es">Agencia de marketing de rendimiento</strong>
+              <p class="lang active" data-lang="en">White-label TikTok and Instagram reels for 3 major DTC brands. 40% faster turnaround than in-house.</p>
+              <p class="lang" data-lang="es">Reels bajo marca blanca para TikTok e Instagram de 3 marcas DTC. 40% más rápido que interno.</p>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <img src="https://via.placeholder.com/600x400/0d6b66/ffffff?text=Agency+Case+2" alt="Agency Case 2">
+            <div class="portfolio-content">
+              <strong class="lang active" data-lang="en">Creative Agency Network</strong>
+              <strong class="lang" data-lang="es">Red de agencias creativas</strong>
+              <p class="lang active" data-lang="en">Full production pipeline for 15+ monthly campaigns. White-label delivery with agency branding throughout.</p>
+              <p class="lang" data-lang="es">Pipeline completo para 15+ campañas mensuales. Entrega bajo marca blanca con branding de agencia.</p>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <img src="https://via.placeholder.com/600x400/0d6b66/ffffff?text=Agency+Case+3" alt="Agency Case 3">
+            <div class="portfolio-content">
+              <strong class="lang active" data-lang="en">Paid Media Boutique</strong>
+              <strong class="lang" data-lang="es">Boutique de paid media</strong>
+              <p class="lang active" data-lang="en">Specialized video production for Meta and YouTube campaigns. All deliverables include agency contact info for client communication.</p>
+              <p class="lang" data-lang="es">Producción especializada para Meta y YouTube. Todos los deliverables incluyen contacto de agencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Our White-label Services</span>
+            <span class="lang-inline" data-lang="es">Nuestros servicios bajo marca blanca</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Complete video production services that seamlessly integrate with your agency workflow.</p>
+            <p class="lang" data-lang="es">Servicios completos de producción que se integran perfectamente con tu workflow de agencia.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Creative Production</h3>
+            <h3 class="lang" data-lang="es">Producción creativa</h3>
+            <p class="lang active" data-lang="en">Pre-production through delivery, all branded under your agency identity. Storyboards, direction, editing, and color grading included.</p>
+            <p class="lang" data-lang="es">Preproducción hasta entrega, todo bajo tu identidad. Storyboards, dirección, edición y color grading incluidos.</p>
+            <ul class="list">
+              <li class="lang active" data-lang="en">Concept development</li>
+              <li class="lang" data-lang="es">Desarrollo de conceptos</li>
+              <li class="lang active" data-lang="en">Creative direction</li>
+              <li class="lang" data-lang="es">Dirección creativa</li>
+              <li class="lang active" data-lang="en">Color grading</li>
+              <li class="lang" data-lang="es">Color grading</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Paid Social Video</h3>
+            <h3 class="lang" data-lang="es">Video para redes pagas</h3>
+            <p class="lang active" data-lang="en">Vertical video for TikTok, Instagram, YouTube Shorts - with A/B testing variants and platform-specific formatting.</p>
+            <p class="lang" data-lang="es">Video vertical para TikTok, Instagram, YouTube Shorts - con variantes A/B y formateo específico.</p>
+            <ul class="list">
+              <li class="lang active" data-lang="en">Hook variation testing</li>
+              <li class="lang" data-lang="es">Testing de hooks</li>
+              <li class="lang active" data-lang="en">16:9, 9:16, 1:1 formats</li>
+              <li class="lang" data-lang="es">Formatos 16:9, 9:16, 1:1</li>
+              <li class="lang active" data-lang="en">Instant platform export</li>
+              <li class="lang" data-lang="es">Export instantáneo a plataforma</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Premium Documentary</h3>
+            <h3 class="lang" data-lang="es">Documental premium</h3>
+            <p class="lang active" data-lang="en">Cinematic documentaries and branded content for agencies ready to pitch higher-value content to their clients.</p>
+            <p class="lang" data-lang="es">Documentales cinematográficos y branded content para agencias que listos para pitch de contenido de mayor valor.</p>
+            <ul class="list">
+              <li class="lang active" data-lang="en">Cinematic storytelling</li>
+              <li class="lang" data-lang="es">Narrativa cinematográfica</li>
+              <li class="lang active" data-lang="en">Professional crew</li>
+              <li class="lang" data-lang="es">Equipo profesional</li>
+              <li class="lang active" data-lang="en">Travel production available</li>
+              <li class="lang" data-lang="es">Producción con viaje disponible</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Our Agency Workflow</span>
+            <span class="lang-inline" data-lang="es">Nuestro workflow de agencia</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Seamless integration with your existing agency processes and client communication.</p>
+            <p class="lang" data-lang="es">Integración fluida con tus procesos de agencia y comunicación con clientes.</p>
+          </div>
+        </div>
+        <div class="split">
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">01. Brief Integration</h3>
+            <h3 class="lang" data-lang="es">01. Integración de brief</h3>
+            <p class="lang active" data-lang="en">We work from your agency's creative brief and maintain your brand guidelines throughout.</p>
+            <p class="lang" data-lang="es">Trabajamos desde el brief creativo de tu agencia y mantenemos tus guías de marca.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">02. White-label Production</h3>
+            <h3 class="lang" data-lang="es">02. Producción bajo marca blanca</h3>
+            <p class="lang active" data-lang="en">All deliverables, communications, and timelines are branded under your agency specification.</p>
+            <p class="lang" data-lang="es">Todos los deliverables, comunicaciones y timelines están bajo tu especificación de marca.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">03. Review & Revise</h3>
+            <h3 class="lang" data-lang="es">03. Revisión y revisión</h3>
+            <p class="lang active" data-lang="en">Unlimited revision rounds within scope. You present the final work as your own production.</p>
+            <p class="lang" data-lang="es">Rondas ilimitadas de revisión dentro del alcance. Presentas el trabajo final como tu producción.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">04. Delivery</h3>
+            <h3 class="lang" data-lang="es">04. Entrega</h3>
+            <p class="lang active" data-lang="en">Final assets delivered with agency branding, contact info, and all files needed for client presentation.</p>
+            <p class="lang" data-lang="es">Assets finales entregados con branding de agencia, contacto y todos los archivos necesarios.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CUCUMELO -->
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Why Agencies Choose Cucumelo</span>
+            <span class="lang-inline" data-lang="es">Por qué las agencias eligen a Cucumelo</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Cost-effective scaling without compromising quality or brand consistency.</p>
+            <p class="lang" data-lang="es">Escalado rentable sin comprometer calidad o consistencia de marca.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Capacity on Demand</h3>
+            <h3 class="lang" data-lang="es">Capacidad bajo demanda</h3>
+            <p class="lang active" data-lang="en">Scale up or down based on campaign cycles. No long-term commitments, no overhead for you.</p>
+            <p class="lang" data-lang="es">Escala según ciclos de campaña. Sin compromisos a largo plazo, sin overhead para ti.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">International Production</h3>
+            <h3 class="lang" data-lang="es">Producción internacional</h3>
+            <p class="lang active" data-lang="en">Cost-effective production from Costa Rica, with global creative talent and bilingual pipelines.</p>
+            <p class="lang" data-lang="es">Producción rentable desde Costa Rica, con talento creativo global y pipelines bilingües.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Full Creative Control</h3>
+            <h3 class="lang" data-lang="es">Control creativo completo</h3>
+            <p class="lang active" data-lang="en">Your direction, your brand, your timeline. We execute exactly as you brief it.</p>
+            <p class="lang" data-lang="es">Tu dirección, tu marca, tu timeline. Ejecutamos exactamente como tú lo defines.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band">
+      <div class="container">
+        <h2 class="lang active" data-lang="en">Agency FAQs</h2>
+        <h2 class="lang" data-lang="es">Preguntas frecuentes de agencia</h2>
+        <div class="split">
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">Can we white-label all deliverables?</h3>
+            <h3 class="lang" data-lang="es">¿Podemos hacer marca blanca todos los deliverables?</h3>
+            <p class="lang active" data-lang="en">Yes. All video files, images, graphics, and even the communication can be fully branded under your agency.</p>
+            <p class="lang" data-lang="es">Sí. Todo video, imágenes, gráficos y comunicación pueden estar totalmente brandado bajo tu agencia.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">How do you handle client communication?</h3>
+            <h3 class="lang" data-lang="es">¿Cómo manejan la comunicación con clientes?</h3>
+            <p class="lang active" data-lang="en">We communicate through your agency's channels. We provide white-label updates and status reports branded for your client.</p>
+            <p class="lang" data-lang="es">Comunicamos a través de tus canales. Provee actualizaciones bajo marca para tu cliente.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">What's your minimum project?</h3>
+            <h3 class="lang" data-lang="es">¿Cuál es el mínimo de proyecto?</h3>
+            <p class="lang active" data-lang="en">We work with single deliverables or ongoing retainers. Minimum spend for white-label setup is $1,500.</p>
+            <p class="lang" data-lang="es">Trabajamos desde deliverables sueltos hasta retainers. Mínimo para setup bajo marca blanca es $1,500.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">Do you have an agency contract?</h3>
+            <h3 class="lang" data-lang="es">¿Tienen contrato para agencias?</h3>
+            <p class="lang active" data-lang="en">Yes. We offer agency master agreements with standard white-label terms, volume discounts, and priority scheduling.</p>
+            <p class="lang" data-lang="es">Sí. Ofrecemos contratos maestro para agencias con términos estándar, descuentos por volumen y scheduling prioritario.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Ready to add production capacity under your agency brand?</span>
+            <span class="lang-inline" data-lang="es">¿Listo para agregar capacidad de producción bajo tu marca de agencia?</span>
+          </h2>
+          <p class="lang active" data-lang="en">Book a 30-minute white-label consultation to discuss your agency's production needs and setup options.</p>
+          <p class="lang" data-lang="es">Agenda una consulta de 30 minutos sobre producción bajo marca blanca para discutir necesidades de tu agencia.</p>
+          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="White-label Agency Production Request">
+            <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minimax(200px,1fr))">
+              <input type="text" name="name" placeholder="Nombre / Name" required>
+              <input type="email" name="email" placeholder="Email / Correo" required>
+            </div>
+            <input type="text" name="agency" placeholder="Nombre de tu agencia / Your agency name">
+            <textarea name="message" rows="4" placeholder="¿Qué tipo de producción necesitas bajo marca blanca? / What white-label production do you need?" required></textarea>
+            <button type="submit"><span class="lang active" data-lang="en">Request Consultation</span><span class="lang" data-lang="es">Solicitar consulta</span></button>
+          </form>
+          <p style="margin-top:var(1rem);font-size:0.85rem;color:var(--color-text-muted)">
+            <span class="lang active" data-lang="en">Or reach out directly: <a href="mailto:hello@cucumelofilms.com">hello@cucumelofilms.com</a> | WhatsApp: <a href="https://wa.me/YOUR_PHONE">+506 XXX XXXX</a></span>
+            <span class="lang" data-lang="es">O contáctanos directamente: <a href="mailto:hola@cucumelofilms.com">hola@cucumelofilms.com</a> | WhatsApp: <a href="https://wa.me/YOUR_PHONE">+506 XXX XXXX</a></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-line">
+      <div>
+        <span class="lang-inline active" data-lang="en">Cucumelo Films — White-label production for agencies.</span>
+        <span class="lang-inline" data-lang="es">Cucumelo Films — Producción bajo marca blanca para agencias.</span>
+      </div>
+      <div>
+        <span class="lang-inline active" data-lang="en">Based in Costa Rica | Bilingual English/Spanish</span>
+        <span class="lang-inline" data-lang="es">Costa Rica | Bilingüe inglés/español</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      const langToggle = document.querySelector('[data-language-toggle]');
+      const header = document.getElementById('header');
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let language = 'en';
+      root.setAttribute('data-theme', theme);
+
+      function renderTheme(){
+        root.setAttribute('data-theme', theme);
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        themeToggle.innerHTML = theme === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      }
+
+      function renderLanguage(){
+        document.querySelectorAll('[data-lang]').forEach(el => el.classList.toggle('active', el.getAttribute('data-lang') === language));
+        langToggle.textContent = language === 'en' ? 'ES' : 'EN';
+        langToggle.setAttribute('aria-label', language === 'en' ? 'Cambiar a español' : 'Switch to English');
+        document.documentElement.lang = language;
+        const cta = document.querySelector('.cta-link');
+        if (cta) cta.textContent = language === 'en' ? 'Request white-label production' : 'Solicitar producción bajo marca blanca';
+      }
+
+      themeToggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
+      langToggle.addEventListener('click', () => { language = language === 'en' ? 'es' : 'en'; renderLanguage(); });
+      window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12));
+      renderTheme();
+      renderLanguage();
+    })();
+  </script>
+</body>
+</html>

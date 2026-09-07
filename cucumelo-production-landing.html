@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Film Production | Cucumelo Films</title>
+  <meta name="description" content="Premium live-action film production from Costa Rica. Documentary-style storytelling, branded content, and cinematic productions for selected international clients and agency partners." />
+  <meta property="og:title" content="Premium Film Production | Cucumelo Films" />
+  <meta property="og:description" content>Premium live-action film production with documentary-style storytelling. Costa Rica-based studio serving international brands and agency partners." />
+  <meta property="og:type" content="website" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f7f6f2; --color-surface: #fbfbf9; --color-surface-2: #f0ede8; --color-surface-offset:#e9e4dd;
+      --color-text:#1f1c18; --color-text-muted:#706d66; --color-text-faint:#aca79f; --color-text-inverse:#f7f6f2;
+      --color-primary:#0d6b66; --color-primary-hover:#094b48; --color-secondary:#c06c2c; --color-border:rgba(31,28,24,.12);
+      --shadow-sm:0 1px 2px rgba(16,12,8,.06); --shadow-md:0 12px 30px rgba(16,12,8,.08); --shadow-lg:0 24px 60px rgba(16,12,8,.14);
+      --radius-sm:0.375rem; --radius-md:0.75rem; --radius-lg:1.25rem; --radius-xl:1.75rem; --radius-full:9999px;
+      --content:1200px; --font-display:'Cabinet Grotesk', 'Arial', sans-serif; --font-body:'Satoshi', 'Inter', sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg:#171614; --color-surface:#1d1c1a; --color-surface-2:#23211e; --color-surface-offset:#2a2723;
+      --color-text:#e5e0d7; --color-text-muted:#a09b94; --color-text-faint:#6e6a64; --color-text-inverse:#171614;
+      --color-primary:#63a9a4; --color-primary-hover:#88c2be; --color-secondary:#e7a565; --color-border:rgba(229,224,215,.12);
+      --shadow-sm:0 1px 2px rgba(0,0,0,.24); --shadow-md:0 12px 30px rgba(0,0,0,.3); --shadow-lg:0 24px 60px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%;height:auto}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit;border:none;background:none;cursor:pointer;color:inherit}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .skip-link{position:absolute;left:-9999px;top:auto}.skip-link:focus{left:var(--space-4);top:var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-3) var(--space-4);z-index:100}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--color-bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid transparent}
+    .header.scrolled{border-color:var(--color-border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .brand svg{width:42px;height:42px}
+    .nav-actions{display:flex;align-items:center;gap:var(--space-2)}
+    .lang-toggle,.theme-toggle,.cta-link{min-height:44px;padding:0 var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-full);font-size:var(--text-sm)}
+    .cta-link{background:var(--color-primary);color:var(--color-text-inverse);border-color:transparent}
+    .theme-toggle,.lang-toggle{background:var(--color-surface)}
+    main{overflow:hidden}
+    .hero{padding:clamp(var(--space-12),8vw,var(--space-20)) 0 var(--space-16);position:relative}
+    .hero-metrics{display:grid;grid-template-columns:repeat(auto-fit,minimax(200px,1fr));gap:var(--space-4);margin-top:var(--space-6)}
+    .metric{padding:var(--space-4);border-radius:var(--radius-lg);background:color-mix(in oklab,var(--color-bg) 35%,var(--color-surface));border:1px solid var(--color-border)}
+    .metric strong{display:block;font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05}
+    .eyebrow{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-primary);font-weight:700;margin-bottom:var(--space-4)}
+    h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.05;letter-spacing:-.04em;max-width:42ch}
+    .hero-copy{max-width:56ch;margin-top:var(--space-5);color:var(--color-text-muted)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--space-5);border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700}
+    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse)}
+    .btn-secondary{background:var(--color-surface);border:1px solid var(--color-border)}
+    section{padding:clamp(var(--space-10),6vw,var(--space-18)) 0}
+    .section-head{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-8);margin-bottom:var(--space-10);align-items:start}
+    h2{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05;letter-spacing:-.03em}
+    .section-head p{color:var(--color-text-muted);max-width:52ch}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minimax(280px,1fr));gap:var(--space-6)}
+    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .card h3{font-size:var(--text-lg);line-height:1.15;margin-bottom:var(--space-3);font-family:var(--font-display)}
+    .card p,.card li{color:var(--color-text-muted)}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minimax(320px,1fr));gap:var(--space-6)}
+    .portfolio-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-sm)}
+    .portfolio-card img{aspect-ratio:21/9;width:100%;object-fit:cover}
+    .portfolio-content{padding:var(--space-4)}
+    .portfolio-content strong{font-family:var(--font-display);color:var(--color-text)}
+    .list{display:grid;gap:var(--space-2);margin-top:var(--space-4)}
+    .list li::before{content:"— ";color:var(--color-secondary);font-weight:700}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+    .panel{background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6)}
+    .panel h3{font-size:var(--text-lg);margin-bottom:var(--space-3);font-family:var(--font-display)}
+    .panel p,.panel li{color:var(--color-text-muted)}
+    .cta{padding:var(--space-16) 0;clear:both}
+    .cta-box{background:linear-gradient(135deg,color-mix(in oklab,var(--color-primary) 12%,var(--color-surface)),var(--color-surface));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:clamp(var(--space-6),5vw,var(--space-12));box-shadow:var(--shadow-md)}
+    .cta-box{max-width:800px;margin:0 auto}
+    .cta-box h2{margin-bottom:var(--space-4)}
+    .cta-box p{color:var(--color-text-muted);max-width:56ch;margin-top:var(--space-4)}
+    .contact-form{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-6)}
+    .contact-form input,.contact-form textarea,.contact-form select{padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-md);font-family:var(--font-body)}
+    .contact-form input,.contact-form textarea{font-size:var(--text-base)}
+    .contact-form button{width:fit-content;padding:0 var(--space-6);border-radius:var(--radius-full);font-weight:700;background:var(--color-primary);color:var(--color-text-inverse);cursor:pointer}
+    .footer{padding:var(--space-8) 0 var(--space-10);color:var(--color-text-muted);font-size:var(--text-sm)}
+    .footer-line{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;border-top:1px solid var(--color-border);padding-top:var(--space-5)}
+    .lang{display:none}.lang.active{display:block}
+    .lang-inline{display:none}.lang-inline.active{display:inline}
+    @media (max-width: 900px){
+      .hero,.section-head,.split,.cta-box{grid-template-columns:1fr}
+      h1{max-width:14ch}
+      .nav{align-items:flex-start;flex-direction:column}
+      .nav-actions{width:100%;flex-wrap:wrap}
+      .lang-toggle,.theme-toggle,.cta-link{flex:1 1 auto;text-align:center;justify-content:center;display:inline-flex;align-items:center}
+    }
+    @media (max-width: 560px){
+      .container{width:min(calc(100% - 1.25rem),var(--content))}
+    }
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="header" id="header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Cucumelo Films home">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="6" y="6" width="52" height="52" rx="18" stroke="currentColor" stroke-width="4"/>
+          <path d="M22 32C22 24.268 28.268 18 36 18H42V26H36C32.134 26 29 29.134 29 33C29 36.866 32.134 40 36 40H42V48H35C27.82 48 22 42.18 22 35V32Z" fill="currentColor"/>
+          <circle cx="22" cy="22" r="4" fill="currentColor"/>
+        </svg>
+        <span>Cucumelo Films</span>
+      </a>
+      <div class="nav-actions">
+        <button class="lang-toggle" data-language-toggle aria-label="Switch language">ES</button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <a class="cta-link" href="#contact">Request premium production</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="lang active" data-lang="en">
+          <div class="eyebrow">Premium Live-Action Film Production</div>
+          <h1>Premium cinematic production for international brands and agencies</h1>
+          <p class="hero-copy">Cucumelo Films creates documentary-style storytelling, branded content, and cinematic productions for brands that need high-impact video with professional quality and compelling narratives.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Request premium production</a>
+            <a href="#portfolio" class="btn btn-secondary">View cinematic work</a>
+          </div>
+        </div>
+        <div class="lang" data-lang="es">
+          <div class="eyebrow">Producción cinematográfica premium</div>
+          <h1>Producción cinematográfica premium para marcas e agencias internacionales</h1>
+          <p class="hero-copy">Cucumelo Films crea storytelling documental, branded content y producciones cinematográficas para marcas que necesitan video de alto impacto con calidad profesional y narrativas compelling.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Solicitar producción premium</a>
+            <a href="#portfolio" class="btn btn-secondary">Ver trabajos cinematográficos</a>
+          </div>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric"><strong>Cinematic quality</strong><span>Professional cameras, lighting, and crew packages.</span></div>
+          <div class="metric"><strong>Storytelling focus</strong><span>Documentary-style narratives and branded content.</span></div>
+          <div class="metric"><strong>International delivery</strong><span>Filmed in Costa Rica, delivered globally.</span></div>
+          <div class="metric"><strong>Bilingual production</strong><span>English and Spanish post-production workflows.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Cinematic Portfolio</span>
+            <span class="lang-inline" data-lang="es">Portafolio cinematográfico</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Premium documentary and branded content projects for international brands.</p>
+            <p class="lang" data-lang="es">Proyectos premium de documentales y branded content para marcas internacionales.</p>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-card">
+            <img src="https://via.placeholder.com/600x400/0d6b66/ffffff?text=Documentary+Film+1" alt="Documentary Film 1">
+            <div class="portfolio-content">
+              <strong class="lang active" data-lang="en">Sustainable Tourism Documentary</strong>
+              <strong class="lang" data-lang="es">Documental de turismo sostenible</strong>
+              <p class="lang active" data-lang="en">6-minute documentary for a Costa Rican eco-lodge brand. Award-winning cinematography and bilingual sound design.</p>
+              <p class="lang" data-lang="es">Documental de 6 minutos para lodge eco en Costa Rica. Fotografía premiada y diseño de sonido bilingüe.</p>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <img src="https://via.placeholder.com/600x400/0d6b66/ffffff?text=Branded+Content+1" alt="Branded Content 1">
+            <div class="portfolio-content">
+              <strong class="lang active" data-lang="en">Tech Brand Origin Story</strong>
+              <strong class="lang" data-lang="es">Historia de origen de marca tech</strong>
+              <p class="lang active" data-lang="en">Branded documentary series showcasing the founding journey of a Silicon Valley startup. Distributed across LinkedIn and YouTube.</p>
+              <p class="lang" data-lang="es">Serie documental mostrando el fundado de un startup tech. Distribuido en LinkedIn y YouTube.</p>
+            </div>
+          </div>
+          <div class="portfolio-card">
+            <img src="https://via.placeholder.com/600x400/0d6b66/ffffff?text=Commercial+Film" alt="Commercial Film">
+            <div class="portfolio-content">
+              <strong class="lang active" data-lang="en">Luxury Hotel Campaign</strong>
+              <strong class="lang" data-lang="es">Campaña de hotel de lujo</strong>
+              <p class="lang active" data-lang="en">Cinematic commercial film for a luxury resort chain. On-site production in Costa Rica with international delivery.</p>
+              <p class="lang" data-lang="es">Film comercial cinematográfico para cadena de hoteles lujosa. Producción presencial en Costa Rica con entrega internacional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Our Premium Services</span>
+            <span class="lang-inline" data-lang="es">Nuestros servicios premium</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Professional production services for brands and agencies seeking cinematic quality and compelling storytelling.</p>
+            <p class="lang" data-lang="es">Servicios profesionales de producción para marcas e agencias que buscan calidad cinematográfica y storytelling compelling.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Documentary-Style Content</h3>
+            <h3 class="lang" data-lang="es">Contenido estilo documental</h3>
+            <p class="lang active" data-lang="en">Authentic storytelling with controlled cinematography. Perfect for brand origin stories, impact reporting, and thought leadership.</p>
+            <p class="lang" data-lang="es">Storytelling auténtico con cinematografía controlada. Perfecto para historias de origen, reporting de impacto y thought leadership.</p>
+            <ul class="list">
+              <li class="lang active" data-lang="en">Authentic storytelling</li>
+              <li class="lang" data-lang="es">Storytelling auténtico</li>
+              <li class="lang active" data-lang="en">Professional cameras</li>
+              <li class="lang" data-lang="es">Cámaras profesionales</li>
+              <li class="lang active" data-lang="en">Color grading</li>
+              <li class="lang" data-lang="es">Color grading</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Branded Commercials</h3>
+            <h3 class="lang" data-lang="es">Comerciales branded</h3>
+            <p class="lang active" data-lang="en">High-production-value commercials with cinematic style. Ideal for product launches, campaigns, and executive storytelling.</p>
+            <p class="lang" data-lang="es">Comerciales de alto valor con estilo cinematográfico. Ideal para lanzamientos, campañas y storytelling ejecutivo.</p>
+            <ul class="list">
+              <li class="lang active" data-lang="en">Cinematic lighting</li>
+              <li class="lang" data-lang="es">Iluminación cinematográfica</li>
+              <li class="lang active" data-lang="en">Professional crew</li>
+              <li class="lang" data-lang="es">Equipo profesional</li>
+              <li class="lang active" data-lang="en">On-site production</li>
+              <li class="lang" data-lang="es">Producción presencial</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Executive Interviews</h3>
+            <h3 class="lang" data-lang="es">Entrevistas ejecutivas</h3>
+            <p class="lang active" data-lang="en">Professional interview production with lighting, multiple angles, and seamless editing for keynote presentations and thought leadership.</p>
+            <p class="lang" data-lang="es">Producción profesional de entrevistas con iluminación, múltiples ángulos y edición seamless para presentaciones y thought leadership.</p>
+            <ul class="list">
+              <li class="lang active" data-lang="en">Multi-camera setup</li>
+              <li class="lang" data-lang="es">Setup multicámara</li>
+              <li class="lang active" data-lang="en">Lighting packages</li>
+              <li class="lang" data-lang="es">Paquetes de iluminación</li>
+              <li class="lang active" data-lang="en">Professional editing</li>
+              <li class="lang" data-lang="es">Edición profesional</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTION MODEL -->
+    <section class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Our Production Model</span>
+            <span class="lang-inline" data-lang="es">Nuestro modelo de producción</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Cinematic quality with Costa Rican cost efficiency and international scalability.</p>
+            <p class="lang" data-lang="es">Calidad cinematográfica con eficiencia de costos costarricense y escalabilidad internacional.</p>
+          </div>
+        </div>
+        <div class="split">
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">Professional Crew</h3>
+            <h3 class="lang" data-lang="es">Equipo profesional</h3>
+            <p class="lang active" data-lang="en">Union carded cinematographers, directors, and support crew with international experience and bilingual communication.</p>
+            <p class="lang" data-lang="es">Cinematógrafos, directores y equipo de apoyo con tarjeta sindical y experiencia internacional.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">On-Site Production</h3>
+            <h3 class="lang" data-lang="es">Producción presencial</h3>
+            <p class="lang active" data-lang="en">Available when travel and production logistics are included in the approved project scope and budget.</p>
+            <p class="lang" data-lang="es">Disponible cuando viajes y logística están incluidos en el alcance y presupuesto aprobados.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">Remote Post-Production</h3>
+            <h3 class="lang" data-lang="es">Post-producción remote</h3>
+            <p class="lang active" data-lang="en">Full editing, color grading, sound design, and delivery managed remotely with daily client check-ins.</p>
+            <p class="lang" data-lang="es">Edición, color grading, sound design y entrega 100% remote con check-ins diarios.</p>
+          </article>
+          <article class="panel">
+            <h3 class="lang active" data-lang="en">Bilingual Delivery</h3>
+            <h3 class="lang" data-lang="es">Entrega bilingüe</h3>
+            <p class="lang active" data-lang="en">English and Spanish language versions, subtitles, and voiceover options included.</p>
+            <p class="lang" data-lang="es">Versiones en inglés y español, subtítulos y opciones de voiceover incluidos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section id="who">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Who This Is For</span>
+            <span class="lang-inline" data-lang="es">Para quién es esto</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Select premium brands and agencies that need cinematic quality storytelling for campaigns, launches, and executive presence.</p>
+            <p class="lang" data-lang="es">Marcas premium y agencias selectivas que necesitan storytelling cinematográfico para campañas, lanzamientos y presencia ejecutiva.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Brand Campaigns</h3>
+            <h3 class="lang" data-lang="es">Campañas de marca</h3>
+            <p class="lang active" data-lang="en">Product launches, brand storytelling, and campaign films that need cinematic quality and professional production values.</p>
+            <p class="lang" data-lang="es">Lanzamientos, storytelling de marca y films de campaña que necesitan calidad y valores de producción.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Agency Partners</h3>
+            <h3 class="lang" data-lang="es">Aliados de agencia</h3>
+            <p class="lang active" data-lang="en">Creative and documentary agencies that need high-end production support for their premium client projects.</p>
+            <p class="lang" data-lang="es">Agencias creativas y documentales que necesitan soporte de producción premium.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">Executive Presence</h3>
+            <h3 class="lang" data-lang="es">Presencia ejecutiva</h3>
+            <p class="lang active" data-lang="en">C-suite interviews, keynote recordings, and leadership storytelling that requires professional film production.</p>
+            <p class="lang" data-lang="es">Entrevistas C-suite, grabaciones de keynote y storytelling de liderazgo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Production Process</span>
+            <span class="lang-inline" data-lang="es">Proceso de producción</span>
+          </h2>
+          <div>
+            <p class="lang active" data-lang="en">Structured workflow from concept to final deliverables, with creative collaboration built in.</p>
+            <p class="lang" data-lang="es">Workflow estructurado de concepto a deliverables finales, con colaboración creativa integrada.</p>
+          </div>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3 class="lang active" data-lang="en">01. Creative Development</h3>
+            <h3 class="lang" data-lang="es">01. Desarrollo creativo</h3>
+            <p class="lang active" data-lang="en">Story outline, shot list, and creative direction. We collaborate on concept before production begins.</p>
+            <p class="lang" data-lang="es">Storyboard, lista de tomas y dirección creativa. Colaboramos en concepto antes de producción.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">02. Production</h3>
+            <h3 class="lang" data-lang="es">02. Producción</h3>
+            <p class="lang active" data-lang="en">On-site filming or remote setup. Professional cameras, lighting, and crew for documentary or commercial shoots.</p>
+            <p class="lang" data-lang="es">Grabación presencial o setup remote. Cámaras, iluminación y equipo profesional.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">03. Post-Production</h3>
+            <h3 class="lang" data-lang="es">03. Post-producción</h3>
+            <p class="lang active" data-lang="en">Editing, color grading, sound design, and VFX. Bilingual final deliverables with subtitles when needed.</p>
+            <p class="lang" data-lang="es">Edición, color grading, sound design y VFX. Deliverables bilingües con subtítulos si es necesario.</p>
+          </article>
+          <article class="card">
+            <h3 class="lang active" data-lang="en">04. Delivery & Localization</h3>
+            <h3 class="lang" data-lang="es">04. Entrega y localización</h3>
+            <p class="lang active" data-lang="en">Final assets optimized for platform, with all versions organized for client use or agency presentation.</p>
+            <p class="lang" data-lang="es">Assets finales optimizados para plataforma, organizados para uso de cliente o presentación de agencia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>
+            <span class="lang-inline active" data-lang="en">Ready to discuss your premium production project?</span>
+            <span class="lang-inline" data-lang="es">¿Listo para discutir tu proyecto de producción premium?</span>
+          </h2>
+          <p class="lang active" data-lang="en">Book a creative consultation to review your project scope, budget, and timeline.</p>
+          <p class="lang" data-lang="es">Agenda una consulta creativa para revisar alcance, presupuesto y timeline.</p>
+          <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="Premium Production Consultation Request">
+            <div style="display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minimax(200px,1fr))">
+              <input type="text" name="name" placeholder="Nombre / Name" required>
+              <input type="email" name="email" placeholder="Email / Correo" required>
+            </div>
+            <input type="text" name="project" placeholder="Tipo de proyecto / Project type">
+            <textarea name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto premium: brief, plataforma, timeline y presupuesto. / Tell us about your premium project: brief, platform, timeline, budget." required></textarea>
+            <button type="submit"><span class="lang active" data-lang="en" >Request Consultation</span><span class="lang" data-lang="es">Solicitar consulta</span></button>
+          </form>
+          <p style="margin-top:var(1rem);font-size:0.85rem;color:var(--color-text-muted)">
+            <span class="lang active" data-lang="en">Or reach out directly: <a href="mailto:hello@cucumelofilms.com">hello@cucumelofilms.com</a> | WhatsApp: <a href="https://wa.me/YOUR_PHONE">+506 XXX XXXX</a></span>
+            <span class="lang" data-lang="es">O contáctanos directamente: <a href="mailto:hola@cucumelofilms.com">hola@cucumelofilms.com</a> | WhatsApp: <a href="https://wa.me/YOUR_PHONE">+506 XXX XXXX</a></span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-line">
+      <div>
+        <span class="lang-inline active" data-lang="en">Cucumelo Films — Costa Rica-based premium film production.</span>
+        <span class="lang-inline" data-lang="es">Cucumelo Films — Producción cinematográfica premium basada en Costa Rica.</span>
+      </div>
+      <div>
+        <span class="lang-inline active" data-lang="en">Bilingual English/Spanish production</span>
+        <span class="lang-inline" data-lang="es">Producción bilingüe inglés/español</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      const langToggle = document.querySelector('[data-language-toggle]');
+      const header = document.getElementById('header');
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let language = 'en';
+      root.setAttribute('data-theme', theme);
+
+      function renderTheme(){
+        root.setAttribute('data-theme', theme);
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        themeToggle.innerHTML = theme === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      }
+
+      function renderLanguage(){
+        document.querySelectorAll('[data-lang]').forEach(el => el.classList.toggle('active', el.getAttribute('data-lang') === language));
+        langToggle.textContent = language === 'en' ? 'ES' : 'EN';
+        langToggle.setAttribute('aria-label', language === 'en' ? 'Cambiar a español' : 'Switch to English');
+        document.documentElement.lang = language;
+        const cta = document.querySelector('.cta-link');
+        if (cta) cta.textContent = language === 'en' ? 'Request premium production' : 'Solicitar producción premium';
+      }
+
+      themeToggle.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; renderTheme(); });
+      langToggle.addEventListener('click', () => { language = language === 'en' ? 'es' : 'en'; renderLanguage(); });
+      window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12));
+      renderTheme();
+      renderLanguage();
+    })();
+  </script>
+</body>
+</html>
