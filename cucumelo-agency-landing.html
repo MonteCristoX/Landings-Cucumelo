@@ -20,8 +20,7 @@
     .brand { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1.1rem; }
     .brand span { color: #fff; }
     .brand span.accent { color: var(--primary); }
-    .lang-toggle { position: fixed; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; transition: background 0.2s; font-size: 0.875rem; z-index: 100; }
-    .lang-toggle:hover { background: rgba(255,255,255,0.1); }
+    .lang-toggle { position: fixed; top: 1rem; right: 1rem; background: var(--primary); color: #0a0a14; border: none; padding: 0.75rem 1.25rem; border-radius: 999px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 600; z-index: 100; box-shadow: 0 4px 12px rgba(0,201,163,0.3); }
     
     .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%, #16213e 100%); position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(0,201,163,0.12) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(0,201,163,0.18) 0%, transparent 40%); }
@@ -67,6 +66,7 @@
   <header class="header">
     <nav class="nav">
       <a href="#" class="brand"><span>Cucumelo</span><span class="accent">Films</span></a>
+      <button class="lang-toggle" id="langToggle">ES</button>
     </div>
   </header>
   
@@ -180,12 +180,23 @@
   </footer>
 
   <script>
-    document.getElementById('langToggle')?.addEventListener('click', function() {
-      const isSpanish = this.textContent === 'ES';
-      document.querySelectorAll('.lang-en').forEach(el => el.style.display = isSpanish ? 'none' : 'block');
-      document.querySelectorAll('.lang-es').forEach(el => el.style.display = isSpanish ? 'block' : 'none');
-      this.textContent = isSpanish ? 'EN' : 'ES';
-    });
+    (function() {
+      var toggle = document.getElementById('langToggle');
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          var isSpanish = this.textContent === 'ES';
+          var enElements = document.querySelectorAll('.lang-en');
+          var esElements = document.querySelectorAll('.lang-es');
+          for (var i = 0; i < enElements.length; i++) {
+            enElements[i].style.display = isSpanish ? 'none' : 'block';
+          }
+          for (var i = 0; i < esElements.length; i++) {
+            esElements[i].style.display = isSpanish ? 'block' : 'none';
+          }
+          this.textContent = isSpanish ? 'EN' : 'ES';
+        });
+      }
+    })();
   </script>
 </body>
 </html>
