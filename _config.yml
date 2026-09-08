@@ -1,7 +1,7 @@
-# Silence Jekyll warnings
-host: true
-theme: minima
+# Minimal config for GitHub Pages with plain HTML
+title: Cucumelo Films Landings
+description: Landing pages for Cucumelo Films campaigns
+theme: null
 plugins: []
-exclude_from_feed: true
 markdown: kramdown
 highlighter: rouge

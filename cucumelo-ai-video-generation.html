@@ -7,7 +7,7 @@
   <meta name="description" content="AI-powered video generation: ads, roll Bs, music videos. Create cinematic content in minutes. Bilingual production." />
   <meta property="og:title" content="AI Video Generation | Cucumelo Films" />
   <meta property="og:description" content="Generate AI video content including ads, roll Bs, and music videos. Fast turnaround with bilingual delivery." />
-  <meta property="og:type" website />
+  <meta property="og:type" content="website" />
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,7 +22,7 @@
     .brand span.accent { color: var(--primary); }
     .lang-toggle { position: fixed; top: 1rem; right: 1rem; background: var(--primary); color: #0a0a14; border: none; padding: 0.75rem 1.25rem; border-radius: 999px; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 600; z-index: 100; box-shadow: 0 4px 12px rgba(0,201,163,0.3); }
     
-    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%, #16213e 100%); position: relative; overflow: hidden; }
+    .hero { min-height: 90vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%, #16213e 100%); position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(0,201,163,0.12) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(0,201,163,0.18) 0%, transparent 40%); }
     .hero-content { max-width: 800px; text-align: center; background: var(--surface); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 1.5rem; padding: 3rem; box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
     .title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -41,7 +41,7 @@
     .feature-title { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.75rem; color: #fff; }
     .feature-desc { color: #a3a3a3; font-size: 0.9rem; line-height: 1.5; }
     
-    .demos { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%); }
+    .demos { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%); }
     .demos-container { max-width: 1200px; margin: 0 auto; }
     .demos-title { font-family: var(--font-display); font-size: 2.2rem; text-align: center; margin-bottom: 1rem; background: linear-gradient(to right, #f5f5f5, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .demos-desc { color: #a3a3a3; text-align: center; margin-bottom: 2rem; font-size: 1.1rem; }
@@ -55,7 +55,7 @@
     .video-title { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.5rem; color: #fff; }
     .video-desc { font-size: 0.85rem; color: #a3a3a3; }
     
-    .cta-section { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg #0a0a14 0%, #1a1a2e 50%); }
+    .cta-section { padding: 4rem 1.5rem 2rem; background: linear-gradient(135deg, #0a0a14 0%, #1a1a2e 50%); }
     .cta-box { max-width: 600px; margin: 0 auto; text-align: center; }
     .footer { padding: 2rem 1.5rem; text-align: center; color: #7a7a7a; font-size: 0.875rem; border-top: 1px solid var(--border); background: rgba(10,10,20,0.5); }
     
@@ -71,7 +71,7 @@
     <nav class="nav">
       <a href="#" class="brand"><span>Cucumelo</span><span class="accent">Films</span></a>
       <button class="lang-toggle" id="langToggle">ES</button>
-    </div>
+    </nav>
   </header>
   
   <section class="hero">
@@ -161,9 +161,9 @@
             <p class="video-desc">Dynamic patterns synced to beat.</p>
           </div>
         </a>
-        <a href="https://cucumelofilms.com" class="video-card" target="_blank" style="display:none;" id="view-all-videos">
+        <a href="https://cucumelofilms.com" class="video-card" target="_blank" id="view-all-videos" rel="noopener">
           <div class="video-thumb" style="background: linear-gradient(135deg, #0a0a14, #1a1a2e);">
-            <span style="font-size:1.5rem; color: var(--primary);">+12 más</span>
+            <span style="font-size:1.5rem; color: var(--primary); font-weight:700;">+12 más</span>
           </div>
           <div class="video-info">
             <div class="video-title">Ver más videos</div>
@@ -196,7 +196,7 @@
       <span class="lang-en">Cucumelo Films — AI video generation from Costa Rica • Bilingual English/Spanish</span>
       <span class="lang-es" style="display:none;">Cucumelo Films — Generación de video con IA desde Costa Rica • Bilingüe inglés/español</span>
     </p>
-    <p style="margin-top: 0.5rem;">hello@cucumelofilms.com | WhatsApp: +506 XXX XXXX</p>
+    <p style="margin-top: 0.5rem;">hello@cucumelofilms.com | WhatsApp: <a href="https://wa.me/50600000000" target="_blank" rel="noopener">+506 0000 0000</a></p>
   </footer>
 
   <script>
@@ -212,8 +212,7 @@
     
     // Auto-toggle to view all button
     document.getElementById('view-all-videos')?.addEventListener('click', function(e) {
-      e.preventDefault();
-      alert('Ver galería completa en cucumelofilms.com');
+      // keep navigation to site, no alert needed
     });
   </script>
 </body>
